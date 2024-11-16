@@ -1,12 +1,17 @@
 local Luna = loadstring(game:HttpGet("https://raw.githubusercontent.com/Nebula-Softworks/Luna-Interface-Suite/refs/heads/main/source.lua", true))()
 
--- Create the window
 local Window = Luna:CreateWindow({
     Name = "Nexus Hub", -- Title of your window
     LogoID = "82795327169782", -- Asset ID of your logo, set to nil if you don't have one
     LoadingEnabled = false, -- Whether to enable the loading animation
     LoadingTitle = "Luna Interface Suite", -- Loading screen title
     LoadingSubtitle = "by Nebula Softworks", -- Loading screen subtitle
+
+    ConfigSettings = {
+      RootFolder = nil, -- i dont think ur gonna use this
+      ConfigFolder = "Nexus Hub"
+    },
+
     KeySystem = false, -- Key system (not in use yet)
     KeySettings = {
         Title = "Luna Example Key",
@@ -17,6 +22,12 @@ local Window = Luna:CreateWindow({
         KeyLink = "", -- URL for the key
         Key = {"Example Key"} -- Accepted keys
     }
+})
+
+Window:CreateHomeTab({
+	SupportedExecutors = {}, -- A Table Of Executors Your Script Supports. Add strings of the executor names for each executor.
+	DiscordInvite = "sirius-1123950497347424357", -- The Discord Invite Link. Do Not Include discord.gg/ | Only Include the code.
+	Icon = 2, -- By Default, The Icon Is The Home Icon. If You would like to change it to dashboard, replace the interger with 2
 })
 
 print("Nexus Hub Executed")
@@ -209,6 +220,17 @@ local Button = MainTab:CreateButton({
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Skibidiking123/Fisch1/refs/heads/main/FischMain"))()
         print("Firen Hub Succesfully Executed!")
+    end
+})
+
+MainTab:CreateSection("Build A Boat For Treasure")
+
+local Button = MainTab:CreateButton({
+    Name = "NovaBoat", -- Button name
+    Description = "Best script for BABFT.", -- Button description
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/novakoolhub/Scripts/main/Scripts/NovBoat.lua"))()
+        print("NovaBoat Succesfully Executed!")
     end
 })
 
