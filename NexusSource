@@ -1,13 +1,17 @@
--- Load the Luna Interface Suite
 local Luna = loadstring(game:HttpGet("https://raw.githubusercontent.com/Nebula-Softworks/Luna-Interface-Suite/refs/heads/main/source.lua", true))()
 
--- Create the window
 local Window = Luna:CreateWindow({
     Name = "Nexus Hub", -- Title of your window
     LogoID = "82795327169782", -- Asset ID of your logo, set to nil if you don't have one
     LoadingEnabled = false, -- Whether to enable the loading animation
     LoadingTitle = "Luna Interface Suite", -- Loading screen title
     LoadingSubtitle = "by Nebula Softworks", -- Loading screen subtitle
+
+    ConfigSettings = {
+      RootFolder = nil, -- i dont think ur gonna use this
+      ConfigFolder = "Nexus Hub"
+    },
+
     KeySystem = false, -- Key system (not in use yet)
     KeySettings = {
         Title = "Luna Example Key",
@@ -20,7 +24,11 @@ local Window = Luna:CreateWindow({
     }
 })
 
-print("Nexus Hub Executed")
+Window:CreateHomeTab({
+	SupportedExecutors = {}, -- A Table Of Executors Your Script Supports. Add strings of the executor names for each executor.
+	DiscordInvite = "sirius-1123950497347424357", -- The Discord Invite Link. Do Not Include discord.gg/ | Only Include the code.
+	Icon = 2, -- By Default, The Icon Is The Home Icon. If You would like to change it to dashboard, replace the interger with 2
+})
 
 Luna:Notification({ 
 	Title = "Nexus Hub Executed",
@@ -43,6 +51,13 @@ local CharacterTab = Window:CreateTab({
     ShowTitle = true -- Whether to show the title at the top of the tab
 })
 
+local ConfigTab = Window:CreateTab({
+	Name = "Configs",
+	Icon = "toggle_on",
+	ImageSource = "Material",
+	ShowTitle = true -- This will determine whether the big header text in the tab will show
+})
+
 local MiscTab = Window:CreateTab({
     Name = "Miscellaneous",
     Icon = "miscellaneous_services", -- Icon for the tab
@@ -57,6 +72,19 @@ local InfoTab = Window:CreateTab({
     ShowTitle = true -- Whether to show the title at the top of the tab
 })
 
+local Bind = MainTab:CreateBind({
+	Name = "Luna Interface Bind",
+	Description = "Changes Luna UI keybind",
+	CurrentBind = "K", -- Check Roblox Studio Docs For KeyCode Names
+	HoldToInteract = false, -- When true, Instead of toggling, You hold to achieve the active state of the Bind
+    	Callback = function()
+    	end,
+
+	OnChangedCallback = function(Bind)
+	 Window.Bind = Bind
+	end,
+}, "WindowMenuBind") -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+
 MainTab:CreateSection("Universal")
 
 local Button = MainTab:CreateButton({
@@ -64,7 +92,12 @@ local Button = MainTab:CreateButton({
     Description = "The most popular admin script.", -- Button description
     Callback = function()
             loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))() 
-        print("Inf Yeild Succesfully Executed!")
+            Luna:Notification({ 
+                Title = "Infinite Yeild Executed",
+                Icon = "notifications_active",
+                ImageSource = "Material",
+                Content = "Nexus Hub Notification"
+            })
     end
 })
 
@@ -78,7 +111,12 @@ local Button = MiscTab:CreateButton({
     Description = "Enables Anti Afk.", -- Button description
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/hassanxzayn-lua/Anti-afk/main/antiafkbyhassanxzyn"))();
-        print("Anti Afk Succesfully Enabled")
+        Luna:Notification({ 
+            Title = "Anti Afk Executed",
+            Icon = "notifications_active",
+            ImageSource = "Material",
+            Content = "Nexus Hub Notification"
+        })
     end
 })
 
@@ -92,7 +130,6 @@ local Button = MiscTab:CreateButton({
     Description = "Destroys luna UI.", -- Button description
     Callback = function()
         Luna:Destroy()
-        print("UI Succesfully Destoyed!")
     end
 })
 
@@ -106,7 +143,12 @@ local Button = MiscTab:CreateButton({
     Description = "Runs a UNC test.", -- Button description
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/unified-naming-convention/NamingStandard/refs/heads/main/UNCCheckEnv.lua"))() 
-        print("UNC Test Succesfully Executed!")
+        Luna:Notification({ 
+            Title = "UNC Test Executed",
+            Icon = "notifications_active",
+            ImageSource = "Material",
+            Content = "Nexus Hub Notification"
+        })
     end
 })
 
@@ -115,21 +157,46 @@ local Button = MiscTab:CreateButton({
     Description = "Runs a sUNC test.", -- Button description
     Callback = function()
         loadstring(game:HttpGet("https://gitlab.com/sens3/nebunu/-/raw/main/HummingBird8's_sUNC_yes_i_moved_to_gitlab_because_my_github_acc_got_brickedd/sUNCm0m3n7.lua"))()
-        print("sUNC Test Succesfully Executed!")
+        Luna:Notification({ 
+            Title = "sUNC Test Executed",
+            Icon = "notifications_active",
+            ImageSource = "Material",
+            Content = "Nexus Hub Notification"
+        })
     end
 })
 
+InfoTab:CreateSection("Luna UI Credits")
+
 local Paragraph = InfoTab:CreateParagraph({
-	Title = "Credits",
-	Text = "@mrkillinghunter_ on discord"
+	Title = "Main Developers",
+	Text = "Hunter - Lead/Main Developer, UI Designing, Some Programming, Documentation, and Logo     JustHey - Co Developer, Major Bug Fixing, Configuration Scripting                                                   Throit - Color Picker                                                                                                                                        Wally - Dragging And Certain Other Mechanics                                                                                                                                        Shlexr and iRay - Rayfield (PCall Parsing, Notifications, Slider)"
 })
+
+local Paragraph = InfoTab:CreateParagraph({
+	Title = "Helpers/Side Developers",
+	Text = "Tarmac and qweery - Icon Modules                                                                                                     Kirill9655 - Loading Circle and Certain Images                                                                                                   Sirius Discord Members - Feedback, Suggestions And Testers                                                                                              Inori - Configuration Concept"
+})
+
+InfoTab:CreateSection("Nexus Hub Credits")
+
+local Paragraph = InfoTab:CreateParagraph({
+	Title = "Main Develpoper/Friends ",
+	Text = "Crimson/Pookie Pepelss - Founder Of Nexus Hub                                                                                 Hunter - Helping Me Out When My Brain Dies"
+})
+
 
 local Button = MainTab:CreateButton({
     Name = "Dex Explorer", -- Button name
     Description = "Best roblox game explorer.", -- Button description
     Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/TheRareOcelot/test/main/Dex%20Explorer", true))() 
-        print("Dex Explorer Succesfully Executed!")
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/infyiff/backup/main/dex.lua"))()
+        Luna:Notification({ 
+            Title = "Dex Explorer Executed",
+            Icon = "notifications_active",
+            ImageSource = "Material",
+            Content = "Nexus Hub Notification"
+        })
     end
 })
 
@@ -137,8 +204,13 @@ local Button = MainTab:CreateButton({
     Name = "Simple Spy", -- Button name
     Description = "Remote spy gui.", -- Button description
     Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/infyiff/backup/main/SimpleSpyV3/main.lua", true))() 
-        print("Remote Spy Succesfully Executed!")
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/infyiff/backup/main/SimpleSpyV3/main.lua", true))()
+        Luna:Notification({ 
+            Title = "Simple Spy Executed",
+            Icon = "notifications_active",
+            ImageSource = "Material",
+            Content = "Nexus Hub Notification"
+        })
     end
 })
 
@@ -149,7 +221,12 @@ local Button = MainTab:CreateButton({
     Description = "A decent bypasser.", -- Button description
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Crimmy12323/gaze-bypass/refs/heads/main/GazeBypass'))()"))() 
-        print("Gaze Bypasser Succesfully Executed!")
+        Luna:Notification({ 
+            Title = "Gaze Chat Bypass Executed",
+            Icon = "notifications_active",
+            ImageSource = "Material",
+            Content = "Nexus Hub Notification"
+        })
     end
 })
 
@@ -158,7 +235,12 @@ local Button = MainTab:CreateButton({
     Description = "BEST chat bypasser.", -- Button description
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/1price/usercreation/refs/heads/main/UserCreation.lua", true))()
-        print("Gaze Bypasser Succesfully Executed!")
+        Luna:Notification({ 
+            Title = "UserCreation Chat Bypass Executed",
+            Icon = "notifications_active",
+            ImageSource = "Material",
+            Content = "Nexus Hub Notification"
+        })
     end
 })
 
@@ -169,7 +251,12 @@ local Button = MainTab:CreateButton({
     Description = "My favourite MM2 script.", -- Button description
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/vertex-peak/vertex/refs/heads/main/loadstring"))() 
-        print("Vertex Succesfully Executed!")
+        Luna:Notification({ 
+            Title = "Vertex Executed",
+            Icon = "notifications_active",
+            ImageSource = "Material",
+            Content = "Nexus Hub Notification"
+        })
     end
 })
 
@@ -177,8 +264,13 @@ local Button = MainTab:CreateButton({
     Name = "Snap Sanix", -- Button name
     Description = "Best MM2 script.", -- Button description
     Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Roman34296589/SnapSanixHUB/refs/heads/main/SnapSanixHUB.lua'))()"))() 
-        print("Snap Sanix Succesfully Executed!")
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/Roman34296589/SnapSanixHUB/refs/heads/main/SnapSanixHUB.lua'))()
+        Luna:Notification({ 
+            Title = "Snap Sanix Executed",
+            Icon = "notifications_active",
+            ImageSource = "Material",
+            Content = "Nexus Hub Notification"
+        })
     end
 })
 
@@ -189,7 +281,12 @@ local Button = MainTab:CreateButton({
     Description = "Sexiest Mic Up script.", -- Button description
     Callback = function()
         loadstring(game:HttpGet('https://whimper.xyz/kitty'))()
-        print("Kitty Hub Succesfully Executed!")
+        Luna:Notification({ 
+            Title = "Kitty Hub Executed",
+            Icon = "notifications_active",
+            ImageSource = "Material",
+            Content = "Nexus Hub Notification"
+        })
     end
 })
 
@@ -200,7 +297,12 @@ local Button = MainTab:CreateButton({
     Description = "Advanced Fisch script.", -- Button description
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Skzuppy/forge-hub/main/loader.lua"))()
-        print("Forge Hub Succesfully Executed!")
+        Luna:Notification({ 
+            Title = "Forge Hub Executed",
+            Icon = "notifications_active",
+            ImageSource = "Material",
+            Content = "Nexus Hub Notification"
+        })
     end
 })
 
@@ -209,7 +311,58 @@ local Button = MainTab:CreateButton({
     Description = "Best autofarm script for Fisch.", -- Button description
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Skibidiking123/Fisch1/refs/heads/main/FischMain"))()
-        print("Firen Hub Succesfully Executed!")
+        Luna:Notification({ 
+            Title = "Firen Hub Executed",
+            Icon = "notifications_active",
+            ImageSource = "Material",
+            Content = "Nexus Hub Notification"
+        })
+    end
+})
+
+MainTab:CreateSection("Build A Boat For Treasure")
+
+local Button = MainTab:CreateButton({
+    Name = "NovaBoat", -- Button name
+    Description = "Best script for BABFT.", -- Button description
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/novakoolhub/Scripts/main/Scripts/NovBoat.lua"))()
+        Luna:Notification({ 
+            Title = "NovaBoat Executed",
+            Icon = "notifications_active",
+            ImageSource = "Material",
+            Content = "Nexus Hub Notification"
+        })
+    end
+})
+
+MainTab:CreateSection("[☢️] Arsenal")
+
+local Button = MainTab:CreateButton({
+    Name = "Thunder Client", -- Button name
+    Description = "Thunder Client ON TOP.", -- Button description
+    Callback = function()     
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/andrewdarkyyofficial/thunderclient/main/main.lua'))()
+        Luna:Notification({ 
+            Title = "Thunder Client Executed",
+            Icon = "notifications_active",
+            ImageSource = "Material",
+            Content = "Nexus Hub Notification"
+        })
+    end
+})
+
+local Button = MainTab:CreateButton({
+    Name = "ProjectWare", -- Button name
+    Description = "A random script I found.", -- Button description
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/FishyPlayzThis/Projecthub-Arsenal/refs/heads/main/obf_QoCPBEH6oZ3Bsrk9saw8oegnmuMZtW0z764FNNfvFwGDACIespPcUZd9NU7P6uq6.lua"))()
+        Luna:Notification({ 
+            Title = "ProjectWare Executed",
+            Icon = "notifications_active",
+            ImageSource = "Material",
+            Content = "Nexus Hub Notification"
+        })
     end
 })
 
@@ -217,21 +370,31 @@ CharacterTab:CreateSection("Universal")
 
 local flying = false
 local speed = 50
-local flySpeed = 1
+local flySpeed = 100
 local flyControl
 
 local Bind = CharacterTab:CreateBind({
-Name = "Fly Toggle",
+Name = "Fly Keybind",
 Description = nil,
-CurrentKeybind = "Q", -- Check Roblox Studio Docs For KeyCode Names
+CurrentBind = "Q", -- Check Roblox Studio Docs For KeyCode Names
 HoldToInteract = false, -- When true, Instead of toggling, You hold to achieve the active state of the Bind
 Callback = function(BindState)
--- The function that takes place when the keybind is pressed
--- The variable (BindState) is a boolean for whether the Bind is being held or not (HoldToInteract needs to be true) OR it is whether the Bind is active
 if BindState then
 startFlying()
+Luna:Notification({
+Title = "Fly Toggle Enabled",
+Icon = "notifications_active",
+ImageSource = "Material",
+Content = "Nexus Hub Notification"
+})
 else
 stopFlying()
+Luna:Notification({
+Title = "Fly Toggle Disabled",
+Icon = "notifications_active",
+ImageSource = "Material",
+Content = "Nexus Hub Notification"
+})
 end
 end
 }, "FlyToggle") -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
@@ -242,7 +405,7 @@ flying = true
 local player = game.Players.LocalPlayer
 local character = player.Character
 local humanoid = character:FindFirstChildOfClass("Humanoid")
-local rootPart = character:FindFirstChild("HumanoidRootPart")
+local rootPart = character:FindFirstChild("HumanoidRootPart") or character:FindFirstChild("Torso")
 
 flyControl = Instance.new("BodyVelocity", rootPart)
 flyControl.Velocity = Vector3.new(0, 0, 0)
@@ -290,7 +453,7 @@ flying = false
 local player = game.Players.LocalPlayer
 local character = player.Character
 local humanoid = character:FindFirstChildOfClass("Humanoid")
-local rootPart = character:FindFirstChild("HumanoidRootPart")
+local rootPart = character:FindFirstChild("HumanoidRootPart") or character:FindFirstChild("Torso")
 
 if rootPart:FindFirstChildOfClass("BodyVelocity") then
 rootPart:FindFirstChildOfClass("BodyVelocity"):Destroy()
@@ -302,16 +465,21 @@ end
 humanoid.PlatformStand = false
 end
 end
-
-local Input = Tab:CreateInput({
+local Input = CharacterTab:CreateInput({
 Name = "Fly Speed",
-Description = nil,
+Description = "Changes flight speed",
 PlaceholderText = "Enter Fly Speed",
 CurrentValue = tostring(flySpeed), -- the current text
 Numeric = true, -- When true, the user may only type numbers in the box (Example walkspeed)
-MaxCharacters = nil, -- if a number, the textbox length cannot exceed the number
+MaxCharacters = 3, -- if a number, the textbox length cannot exceed the number
 Enter = true, -- When true, the callback will only be executed when the user presses enter.
 Callback = function(Text)
+    Luna:Notification({ 
+        Title = "Fly Speed Changed",
+        Icon = "notifications_active",
+        ImageSource = "Material",
+        Content = "Nexus Hub Notification"
+    })
 -- The function that takes place when the input is changed
 -- The variable (Text) is a string for the value in the text box
 flySpeed = tonumber(Text) or flySpeed
@@ -371,7 +539,12 @@ local Button = CharacterTab:CreateButton({
         JumpPowerSlider:UpdateValue(50) -- Reset JumpPower slider to default (50)
         
         -- Optionally, print a message to confirm reset
-        print("WalkSpeed and JumpPower have been reset to their default values.")
+        Luna:Notification({ 
+            Title = "WalkSpeed/Jumpspeed Reset",
+            Icon = "notifications_active",
+            ImageSource = "Material",
+            Content = "Nexus Hub Notification"
+        })
     end
 })
 
@@ -382,7 +555,12 @@ local Button = CharacterTab:CreateButton({
     Description = "ServerSided character modification.", -- Button description
     Callback = function()
         loadstring(game:HttpGet('https://raw.githubusercontent.com/Gazer-Ha/Valiant-Ui-Lib-Gazed-/refs/heads/main/Head%20Pack'))()
-        print("Fe Head Backpack Succesfully Executed!")
+        Luna:Notification({ 
+            Title = "Fe Head Backpack Executed",
+            Icon = "notifications_active",
+            ImageSource = "Material",
+            Content = "Nexus Hub Notification"
+        })
     end
 })
 
@@ -391,6 +569,13 @@ local Button = CharacterTab:CreateButton({
     Description = "ServerSided character modification.", -- Button description
     Callback = function()
         loadstring(game:HttpGet('https://raw.githubusercontent.com/Gazer-Ha/Valiant-Ui-Lib-Gazed-/refs/heads/main/Head%20Down'))()
-        print("Fe Head Down Succesfully Executed!")
+        Luna:Notification({ 
+            Title = "Fe Head Down Executed",
+            Icon = "notifications_active",
+            ImageSource = "Material",
+            Content = "Nexus Hub Notification"
+        })
     end
 })
+
+ConfigTab:BuildConfigSection() -- Tab Should be the name of the tab you are adding this section to.
