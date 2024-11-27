@@ -14,12 +14,12 @@ local Window = Luna:CreateWindow({
 
 	KeySystem = false, -- As Of Beta 6, Luna Has officially Implemented A Key System!
 	KeySettings = {
-		Title = "Nexus Hub Key System",
+		Title = "Luna Example Key",
 		Subtitle = "Key System",
-		Note = "hehe",
+		Note = "Best Key System Ever! Also, Please Use A HWID Keysystem like Pelican, Luarmor etc. that provide key strings based on your HWID since putting a simple string is very easy to bypass",
 		SaveInRoot = false, -- Enabling will save the key in your RootFolder (YOU MUST HAVE ONE BEFORE ENABLING THIS OPTION)
 		SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
-		Key = {"Nexus_7161A72GGDJ81AQ8199FA8"}, -- List of keys that will be accepted by the system, please use a system like Pelican or Luarmor that provide key strings based on your HWID since putting a simple string is very easy to bypass
+		Key = {"Example Key"}, -- List of keys that will be accepted by the system, please use a system like Pelican or Luarmor that provide key strings based on your HWID since putting a simple string is very easy to bypass
 		SecondAction = {
 			Enabled = true, -- Set to false if you do not want a second action,
 			Type = "Link", -- Link / Discord.
@@ -198,6 +198,52 @@ local Button = MainTab:CreateButton({
     end
 })
 
+MainTab:CreateSection("[☢️] Arsenal")
+
+local Button = MainTab:CreateButton({
+    Name = "Thunder Client", -- Button name
+    Description = "Thunder Client ON TOP.", -- Button description
+    Callback = function()     
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/andrewdarkyyofficial/thunderclient/main/main.lua'))()
+        Luna:Notification({ 
+            Title = "Thunder Client Executed",
+            Icon = "notifications_active",
+            ImageSource = "Material",
+            Content = "Nexus Hub Notification"
+        })
+    end
+})
+
+local Button = MainTab:CreateButton({
+    Name = "ProjectWare", -- Button name
+    Description = "A random script I found.", -- Button description
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/FishyPlayzThis/Projecthub-Arsenal/refs/heads/main/obf_QoCPBEH6oZ3Bsrk9saw8oegnmuMZtW0z764FNNfvFwGDACIespPcUZd9NU7P6uq6.lua"))()
+        Luna:Notification({ 
+            Title = "ProjectWare Executed",
+            Icon = "notifications_active",
+            ImageSource = "Material",
+            Content = "Nexus Hub Notification"
+        })
+    end
+})
+
+MainTab:CreateSection("Build A Boat For Treasure")
+
+local Button = MainTab:CreateButton({
+    Name = "NovaBoat", -- Button name
+    Description = "Best script for BABFT.", -- Button description
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/novakoolhub/Scripts/main/Scripts/NovBoat.lua"))()
+        Luna:Notification({ 
+            Title = "NovaBoat Executed",
+            Icon = "notifications_active",
+            ImageSource = "Material",
+            Content = "Nexus Hub Notification"
+        })
+    end
+})
+
 MainTab:CreateSection("Chat Bypass")
 
 local Button = MainTab:CreateButton({
@@ -221,6 +267,98 @@ local Button = MainTab:CreateButton({
         loadstring(game:HttpGet("https://raw.githubusercontent.com/1price/usercreation/refs/heads/main/UserCreation.lua", true))()
         Luna:Notification({ 
             Title = "UserCreation Chat Bypass Executed",
+            Icon = "notifications_active",
+            ImageSource = "Material",
+            Content = "Nexus Hub Notification"
+        })
+    end
+})
+
+MainTab:CreateSection("Dress To Impress 💜")
+
+local Button = MainTab:CreateButton({
+    Name = "NutHub", -- Button name
+    Description = "Best DTI script.", -- Button description
+    Callback = function()     
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/01iq/me/refs/heads/main/DressToImpress",true))()
+        Luna:Notification({ 
+            Title = "NutHub Executed",
+            Icon = "notifications_active",
+            ImageSource = "Material",
+            Content = "Nexus Hub Notification"
+        })
+    end
+})
+
+MainTab:CreateSection("🎃 DOORS 👁️")
+
+local Button = MainTab:CreateButton({
+    Name = "Doors Script", -- Button name
+    Description = "Random ass script.", -- Button description
+    Callback = function()     
+        loadstring(game:HttpGet("https://scripts.waza80.com/script/DOORS"))()
+        Luna:Notification({ 
+            Title = "Doors Script Executed",
+            Icon = "notifications_active",
+            ImageSource = "Material",
+            Content = "Nexus Hub Notification"
+        })
+    end
+})
+
+MainTab:CreateSection("Driving Empire 🏎️")
+
+local Button = MainTab:CreateButton({
+    Name = "Simplicity", -- Button name
+    Description = "Most popular Driving Empire script.", -- Button description
+    Callback = function()     
+        loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/d8bf54daa5b358826ce74cab275f9135.lua"))()
+        Luna:Notification({ 
+            Title = "Simplicity Executed",
+            Icon = "notifications_active",
+            ImageSource = "Material",
+            Content = "Nexus Hub Notification"
+        })
+    end
+})
+
+MainTab:CreateSection("[🏴‍☠️] Fisch")
+
+local Button = MainTab:CreateButton({
+    Name = "Forge Hub", -- Button name
+    Description = "Advanced Fisch script.", -- Button description
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Skzuppy/forge-hub/main/loader.lua"))()
+        Luna:Notification({ 
+            Title = "Forge Hub Executed",
+            Icon = "notifications_active",
+            ImageSource = "Material",
+            Content = "Nexus Hub Notification"
+        })
+    end
+})
+
+local Button = MainTab:CreateButton({
+    Name = "Firen Hub", -- Button name
+    Description = "Best autofarm script for Fisch.", -- Button description
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Skibidiking123/Fisch1/refs/heads/main/FischMain"))()
+        Luna:Notification({ 
+            Title = "Firen Hub Executed",
+            Icon = "notifications_active",
+            ImageSource = "Material",
+            Content = "Nexus Hub Notification"
+        })
+    end
+})
+
+local Button = MainTab:CreateButton({
+    Name = "Speed X Hub", -- Button name
+    Description = "Best keyless script for Fisch.", -- Button description
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Skibidiking123/Fisch1/refs/heads/main/FischMain"))()
+        Luna:Notification({ 
+            Title = "Speed X Hub Executed",
             Icon = "notifications_active",
             ImageSource = "Material",
             Content = "Nexus Hub Notification"
@@ -274,15 +412,13 @@ local Button = MainTab:CreateButton({
     end
 })
 
-MainTab:CreateSection("[🏴‍☠️] Fisch")
-
 local Button = MainTab:CreateButton({
-    Name = "Forge Hub", -- Button name
-    Description = "Advanced Fisch script.", -- Button description
+    Name = "Zacks Easy Hub", -- Button name
+    Description = "Best Mic Up script.", -- Button description
     Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Skzuppy/forge-hub/main/loader.lua"))()
+        loadstring(game:HttpGet(('https://raw.githubusercontent.com/EnterpriseExperience/MicUpSource/refs/heads/main/v6-beta')))()
         Luna:Notification({ 
-            Title = "Forge Hub Executed",
+            Title = "Zacks Easy Hub",
             Icon = "notifications_active",
             ImageSource = "Material",
             Content = "Nexus Hub Notification"
@@ -290,59 +426,15 @@ local Button = MainTab:CreateButton({
     end
 })
 
+MainTab:CreateSection("Pet Simulator 99! 🦃")
+
 local Button = MainTab:CreateButton({
-    Name = "Firen Hub", -- Button name
-    Description = "Best autofarm script for Fisch.", -- Button description
+    Name = "Reaper Hub", -- Button name
+    Description = "Skibidi PS99 script.", -- Button description
     Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Skibidiking123/Fisch1/refs/heads/main/FischMain"))()
+        loadstring(game:HttpGet("https://reaperscripts.com/loader.lua"))()
         Luna:Notification({ 
-            Title = "Firen Hub Executed",
-            Icon = "notifications_active",
-            ImageSource = "Material",
-            Content = "Nexus Hub Notification"
-        })
-    end
-})
-
-MainTab:CreateSection("Build A Boat For Treasure")
-
-local Button = MainTab:CreateButton({
-    Name = "NovaBoat", -- Button name
-    Description = "Best script for BABFT.", -- Button description
-    Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/novakoolhub/Scripts/main/Scripts/NovBoat.lua"))()
-        Luna:Notification({ 
-            Title = "NovaBoat Executed",
-            Icon = "notifications_active",
-            ImageSource = "Material",
-            Content = "Nexus Hub Notification"
-        })
-    end
-})
-
-MainTab:CreateSection("[☢️] Arsenal")
-
-local Button = MainTab:CreateButton({
-    Name = "Thunder Client", -- Button name
-    Description = "Thunder Client ON TOP.", -- Button description
-    Callback = function()     
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/andrewdarkyyofficial/thunderclient/main/main.lua'))()
-        Luna:Notification({ 
-            Title = "Thunder Client Executed",
-            Icon = "notifications_active",
-            ImageSource = "Material",
-            Content = "Nexus Hub Notification"
-        })
-    end
-})
-
-local Button = MainTab:CreateButton({
-    Name = "ProjectWare", -- Button name
-    Description = "A random script I found.", -- Button description
-    Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/FishyPlayzThis/Projecthub-Arsenal/refs/heads/main/obf_QoCPBEH6oZ3Bsrk9saw8oegnmuMZtW0z764FNNfvFwGDACIespPcUZd9NU7P6uq6.lua"))()
-        Luna:Notification({ 
-            Title = "ProjectWare Executed",
+            Title = "Reaper Hub",
             Icon = "notifications_active",
             ImageSource = "Material",
             Content = "Nexus Hub Notification"
@@ -480,29 +572,6 @@ local WalkSpeedSlider = CharacterTab:CreateSlider({
         game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
     end
 }, "WalkSpeedSlider")
-
-JumpPowerSlider = CharacterTab:CreateSlider({
-    Name = "JumpPower", -- Slider name
-    Range = {50, 250}, -- Min and max values for jump power
-    Increment = 1, -- Value change increment
-    CurrentValue = 50, -- Initial value for jump power
-    Callback = function(Value)
-        local character = game.Players.LocalPlayer.Character
-        if character then
-            local humanoid = character:FindFirstChildOfClass("Humanoid")
-            if humanoid then
-                -- Check if the character is using R15 (humanoid has RigType)
-                if humanoid.RigType == Enum.HumanoidRigType.R15 then
-                    -- Use JumpHeight for R15
-                    humanoid.JumpHeight = Value
-                else
-                    -- Use JumpPower for R6
-                    humanoid.JumpPower = Value
-                end
-            end
-        end
-    end
-}, "JumpPowerSlider")
 
 local Button = CharacterTab:CreateButton({
     Name = "Reset to Default", -- Button name
