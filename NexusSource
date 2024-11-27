@@ -12,7 +12,7 @@ local Window = Luna:CreateWindow({
       ConfigFolder = "Nexus Hub"
     },
 
-	KeySystem = true, -- As Of Beta 6, Luna Has officially Implemented A Key System!
+	KeySystem = false, -- As Of Beta 6, Luna Has officially Implemented A Key System!
 	KeySettings = {
 		Title = "Nexus Hub Key System",
 		Subtitle = "Key System",
