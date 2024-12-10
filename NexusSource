@@ -28,12 +28,6 @@ local Window = Luna:CreateWindow({
 	}
 })
 
-Window:CreateHomeTab({
-	SupportedExecutors = {}, -- A Table Of Executors Your Script Supports. Add strings of the executor names for each executor.
-	DiscordInvite = "JXqnj4X7DA", -- The Discord Invite Link. Do Not Include discord.gg/ | Only Include the code.
-	Icon = 2, -- By Default, The Icon Is The Home Icon. If You would like to change it to dashboard, replace the interger with 2
-})
-
 Luna:Notification({ 
 	Title = "Nexus Hub Executed",
 	Icon = "notifications_active",
@@ -41,9 +35,22 @@ Luna:Notification({
 	Content = "Thank you to all the people who created this master pce UI"
 })
 
+Window:CreateHomeTab({
+	SupportedExecutors = {}, -- A Table Of Executors Your Script Supports. Add strings of the executor names for each executor.
+	DiscordInvite = "JXqnj4X7DA", -- The Discord Invite Link. Do Not Include discord.gg/ | Only Include the code.
+	Icon = 2, -- By Default, The Icon Is The Home Icon. If You would like to change it to dashboard, replace the interger with 2
+})
+
 local MainTab = Window:CreateTab({
     Name = "Main",
     Icon = "home_filled", -- Icon for the tab
+    ImageSource = "Material", -- Image source (Material Design)
+    ShowTitle = true -- Whether to show the title at the top of the tab
+})
+
+local RecommendedTab = Window:CreateTab({
+    Name = "Recommended",
+    Icon = "star", -- Icon for the tab
     ImageSource = "Material", -- Image source (Material Design)
     ShowTitle = true -- Whether to show the title at the top of the tab
 })
@@ -165,8 +172,13 @@ local Paragraph = InfoTab:CreateParagraph({
 InfoTab:CreateSection("Nexus Hub Credits")
 
 local Paragraph = InfoTab:CreateParagraph({
-	Title = "Main Develpoper/Friends ",
-	Text = "Crimson/Pookie Pepelss - Founder Of Nexus Hub                                                                                 Hunter - Helping Me Out When My Brain Dies"
+	Title = "Main Developer/Friends ",
+	Text = "Crimson/Pookie Pepelss - Founder Of Nexus Hub                                                                                 Hunter - Helping Me Out When My Brain Dies                                                                                              Lindividu - Paid Scripts"
+})
+
+local Paragraph = InfoTab:CreateParagraph({
+	Title = "Script Developers",
+	Text = "Lindividu - Recommended Scripts"
 })
 
 
@@ -630,3 +642,77 @@ local Button = CharacterTab:CreateButton({
         })
     end
 })
+
+local Button = RecommendedTab:CreateButton({
+	Name = "Copy Discord To ClipBoard",
+	Description = nil, -- Creates A Description For Users to know what the button does (looks bad if you use it all the time),
+    	Callback = function()
+            setclipboard("https://discord.gg/Nn6Axb5aJR")
+            toclipboard("https://discord.gg/Nn6Axb5aJR")
+            Luna:Notification({ 
+                Title = "Link copied to clipboard",
+                Icon = "content_copy",
+                ImageSource = "Material",
+                Content = "Nexus Hub Notification"
+            })
+    	end
+})
+
+local Button = RecommendedTab:CreateButton({
+	Name = "Get Key",
+	Description = nil, -- Creates A Description For Users to know what the button does (looks bad if you use it all the time),
+    	Callback = function()
+            setclipboard("https://facilitykey.org/")
+            toclipboard("https://facilitykey.org/")
+            Luna:Notification({ 
+                Title = "Link copied to clipboard",
+                Icon = "content_copy",
+                ImageSource = "Material",
+                Content = "Nexus Hub Notification"
+            })
+    	end
+})
+
+RecommendedTab:CreateDivider()
+
+local Button = RecommendedTab:CreateButton({
+	Name = "War Tycoon",
+	Description = "War Tycoon script with many features", -- Creates A Description For Users to know what the button does (looks bad if you use it all the time),
+    	Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/FacilityHUB/Facility-Key/refs/heads/main/War%20Tycoon%20v1.0.0.0c"))()
+            Luna:Notification({ 
+                Title = "War Tycoon Script Executed",
+                Icon = "notifications_active",
+                ImageSource = "Material",
+                Content = "Nexus Hub Notification"
+            })
+    	end
+})
+
+local Button = RecommendedTab:CreateButton({
+	Name = "Rivals",
+	Description = "Rivals script with many features", -- Creates A Description For Users to know what the button does (looks bad if you use it all the time),
+    	Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/FacilityHUB/Facility-Key/refs/heads/main/Rivals%20Beta%20v1.0.0.0c"))()
+            Luna:Notification({ 
+                Title = "Rivals Script Executed",
+                Icon = "notifications_active",
+                ImageSource = "Material",
+                Content = "Nexus Hub Notification"
+            })
+    	end
+    })
+
+        local Button = RecommendedTab:CreateButton({
+            Name = "Universal Aimbot",
+            Description = "Universal Aimbot script with many features", -- Creates A Description For Users to know what the button does (looks bad if you use it all the time),
+                Callback = function()
+                    loadstring(game:HttpGet("https://raw.githubusercontent.com/FacilityHUB/Facility-Key/refs/heads/main/Aimbot%20Universal%20Beta%20v1.0.0.0c"))()
+                    Luna:Notification({ 
+                        Title = "Universal Aimbot",
+                        Icon = "notifications_active",
+                        ImageSource = "Material",
+                        Content = "Nexus Hub Notification"
+                    })
+                end
+        })
